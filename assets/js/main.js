@@ -52,3 +52,33 @@ Author: GrayGrids
 
 
 })();
+
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.getElementById("merchant-form");
+    if (form) {
+      form.addEventListener("submit", async function (event) {
+        event.preventDefault();
+        const status = document.getElementById("merchant-form-status");
+        const data = new FormData(form);
+        try {
+          const response = await fetch(form.action, {
+            method: form.method,
+            body: data,
+            headers: { 'Accept': 'application/json' }
+          });
+          if (response.ok) {
+            status.innerHTML = "Thanks for your submission!";
+            form.reset();
+          } else {
+            const result = await response.json();
+            status.innerHTML = result.errors
+              ? result.errors.map(e => e.message).join(", ")
+              : "Oops! There was a problem submitting your form.";
+          }
+        } catch (error) {
+          status.innerHTML = "Oops! There was a problem submitting your form.";
+        }
+      });
+    }
+  });
+  
