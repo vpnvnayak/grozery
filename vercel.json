@@ -4,7 +4,10 @@
       { "source": "/about-us", "destination": "/about-us.html" },
       { "source": "/contact", "destination": "/contact.html" },
       { "source": "/features", "destination": "/features.html" },
-      { "source": "/privacy-policy", "destination": "/privacy-policy.html" }
+      { "source": "/privacy-policy", "destination": "/privacy-policy.html" },
+      { "source": "/terms-services", "destination": "/terms-services.html" },
+    { "source": "/signup", "destination": "/signup.html" },
+    { "source": "/return-policy", "destination": "/return-policy.html" }
     ]
   }
   
